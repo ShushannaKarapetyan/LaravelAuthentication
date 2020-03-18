@@ -1,4 +1,4 @@
-<!doctype html>
+{{--<!doctype html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -13,4 +13,22 @@
     <p>It sounds like you want to hear more about {{ $topic }}.</p>
 
 </body>
-</html>
+</html>--}}
+
+
+@component('mail::message')
+# A Heading
+
+
+Lorem ipsum dolor sit amet, consectetur adipisicing elit. Commodi, itaque.
+
+- A list
+- goes
+- here
+
+@component('mail::button',['url'=>'https://laracasts.com'])
+    Visit Laracasts
+@endcomponent
+
+@endcomponent
+
