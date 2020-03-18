@@ -22,3 +22,6 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/contact','ContactController@show');
 Route::post('/contact','ContactController@store')->name('contact.store');
+
+Route::get('/payments/create','PaymentsController@create')->middleware('auth');
+Route::post('/payments','PaymentsController@store')->middleware('auth');
