@@ -32,7 +32,7 @@ Route::get('notifications','UserNotificationsController@show')->middleware('auth
 //Authorizations Routes
 
 Route::get('/conversations','ConversationsController@index');
-Route::get('/conversations/{conversation}','ConversationsController@show')->name('conversation.show');
+Route::get('/conversations/{conversation}','ConversationsController@show')->name('conversation.show')->middleware('can:view,conversation');
 
 
 Route::post('/best-replies/{reply}','ConversationBestReplyController@store');
