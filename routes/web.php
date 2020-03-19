@@ -25,3 +25,5 @@ Route::post('/contact','ContactController@store')->name('contact.store');
 
 Route::get('/payments/create','PaymentsController@create')->middleware('auth');
 Route::post('/payments','PaymentsController@store')->middleware('auth');
+
+Route::get('notifications','UserNotificationsController@show')->middleware('auth');

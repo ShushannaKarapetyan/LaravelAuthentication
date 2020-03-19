@@ -17,6 +17,6 @@ class PaymentsController extends Controller
 
         # it's the same
 
-        request()->user()->notify(new PaymentReceived());
+        request()->user()->notify(new PaymentReceived(900));
     }
 }
