@@ -10,6 +10,16 @@ class ConversationPolicy
 {
     use HandlesAuthorization;
 
+    public function before(User $user){ //if we have this before function(hook), we never move on to next step
+        /*if($user->id === 5){  // this user can have permission too, for all replies.
+            return true;
+        }*/
+
+        #it's the same
+
+        return $user->id === 5;
+    }
+
     /**
      * Determine whether the user can update the conversation.
      *
