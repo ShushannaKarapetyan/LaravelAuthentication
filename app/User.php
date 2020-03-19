@@ -43,4 +43,30 @@ class User extends Authenticatable
         return $this->phone;
     }
 
+    public function roles(){
+        return $this->belongsToMany(Role::class)->withTimestamps();
+    }
+
+    public function assignRole($role){
+        /*$this->roles()->save($role);*/
+
+        //if assignRole() gets not integer value, f.e. $user->assignRole('manager')
+        if(is_string($role)){
+            $role = Role::whereName($role)->firstOrFail();
+        }
+
+        $this->roles()->sync($role,false);
+    }
+
+
+    //$user->roles[0]->abilities
+    // it's the same
+    //$user->roles->map->abilities
+
+    public function abilities(){
+        //flatten - returns 1 collection
+        //pluck('name') - returns collection of marked fields
+        return $this->roles->map->abilities->flatten()->pluck('name')->unique();
+    }
+
 }

@@ -33,5 +33,9 @@ class AuthServiceProvider extends ServiceProvider
             return $conversation->user->is($user);
 
         });*/
+
+       Gate::before(function ($user,$ability){
+           return $user->abilities()->contains($ability);
+       });
     }
 }
